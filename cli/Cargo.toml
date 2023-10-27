@@ -1,0 +1,28 @@
+[package]
+name = "icepack-cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["SaturnKai"]
+license = "MIT"
+description = "A tool for modifying archive files from Kula World."
+repository = "https://github.com/kulaworkshop/icepack"
+homepage = "https://github.com/kulaworkshop/icepack"
+
+[build-dependencies]
+cmake = "0.1.50"
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0.1.12"
+
+[dependencies]
+byteorder = "1.5.0"
+clap = { version = "4.4.6", features = ["derive"] }
+colored = "2.0.4"
+flate2 = "1.0.28"
+libc = "0.2.149"
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
